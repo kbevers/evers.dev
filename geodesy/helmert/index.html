@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../cv/">
+        <link rel="next" href="../eulerpole/">
       
       
         
@@ -526,6 +526,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eulerpole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Euler poles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -756,11 +784,12 @@
 <p>can also be expressed as</p>
 <div class="arithmatex">\[
 \begin{equation}
-    P_{B} = T + c \bm{R}P_{A}
+    \label{eq:simplehelmert}
+    P_{B} = T + c\mathbf{R}P_{A}
 \end{equation}
 \]</div>
 <p>where <span class="arithmatex">\(P_{A}\)</span> and <span class="arithmatex">\(P_{B}\)</span> are the input and output coordinate vectors,
-<span class="arithmatex">\(T\)</span> is the translation vector, <span class="arithmatex">\(\bm R\)</span> is the rotation matrix and the scale
+<span class="arithmatex">\(T\)</span> is the translation vector, <span class="arithmatex">\(\mathbf R\)</span> is the rotation matrix and the scale
 factor <span class="arithmatex">\(c\)</span> is expressed as</p>
 <div class="arithmatex">\[
 \begin{equation}
@@ -772,33 +801,33 @@ factor <span class="arithmatex">\(c\)</span> is expressed as</p>
 in a row, e.g.</p>
 <div class="arithmatex">\[
 \begin{equation}
-    P_B = T_1 + c_1\bm{R_1}P_A
+    P_B = T_1 + c_1\mathbf{R_1}P_A
 \end{equation}
 \]</div>
 <div class="arithmatex">\[
 \begin{equation}
-    P_C = T + c_2\bm{R_2}P_B
+    P_C = T + c_2\mathbf{R_2}P_B
 \end{equation}
 \]</div>
 <p>where the coordinate <span class="arithmatex">\(P_A\)</span> is transformed with the parameters of the first
-step (<span class="arithmatex">\(T_1\)</span>, <span class="arithmatex">\(c_1\)</span> &amp; <span class="arithmatex">\(\bm{R_1}\)</span>) and then the parameters of the second step
-(<span class="arithmatex">\(T_2\)</span>, <span class="arithmatex">\(c_2\)</span> &amp; <span class="arithmatex">\(\bm{R_2}\)</span>).</p>
+step (<span class="arithmatex">\(T_1\)</span>, <span class="arithmatex">\(c_1\)</span> &amp; <span class="arithmatex">\(\mathbf{R_1}\)</span>) and then the parameters of the second step
+(<span class="arithmatex">\(T_2\)</span>, <span class="arithmatex">\(c_2\)</span> &amp; <span class="arithmatex">\(\mathbf{R_2}\)</span>).</p>
 <p>This is computationally heavy and can be avoided by
 substituting one into the other:</p>
 <div class="arithmatex">\[
 \begin{equation}
-    P_C = T_2 + c_2\bm{R_2} \left( T_1 + c_1 \bm{R_1} P_A \right)
+    P_C = T_2 + c_2\mathbf{R_2} \left( T_1 + c_1 \mathbf{R_1} P_A \right)
 \end{equation}
 \]</div>
-<p>$$
-\begin{equation}
-    P_C = T_2 + c_2\bm{R_2}T_1 + c_2c_1 \bm{R_2}\bm{R_1} P_A
-\end{equation}
-$$
-which can be simplified using the following expressions</p>
 <div class="arithmatex">\[
 \begin{equation}
-    T_3 = T_2 + c_2\bm{R_2}T_1
+    P_C = T_2 + c_2\mathbf{R_2}T_1 + c_2c_1 \mathbf{R_2}\mathbf{R_1} P_A
+\end{equation}
+\]</div>
+<p>which can be simplified using the following expressions</p>
+<div class="arithmatex">\[
+\begin{equation}
+    T_3 = T_2 + c_2\mathbf{R_2}T_1
 \end{equation}
 \]</div>
 <div class="arithmatex">\[
@@ -808,19 +837,19 @@ which can be simplified using the following expressions</p>
 \]</div>
 <div class="arithmatex">\[
 \begin{equation}
-    R_3 = \bm{R_2}\bm{R_1}
+    R_3 = \mathbf{R_2}\mathbf{R_1}
 \end{equation}
 \]</div>
 <p>And with a bit of substitution we get</p>
 <div class="arithmatex">\[
 \begin{equation}
-    P_C = T_3 + c_3 \bm{R_3} P_A
+    P_C = T_3 + c_3 \mathbf{R_3} P_A
 \end{equation}
 \]</div>
 <p>which is on the same form as the Helmert transformation shown in
-the beginning.</p>
+in <span class="arithmatex">\(\ref{eq:simplehelmert}\)</span>.</p>
 <p>A chained Helmert transformation can be sped up significantly by first
-determining <span class="arithmatex">\(T_3\)</span>, <span class="arithmatex">\(c_3\)</span> and <span class="arithmatex">\(\bm R_3\)</span> and using them as parameters in
+determining <span class="arithmatex">\(T_3\)</span>, <span class="arithmatex">\(c_3\)</span> and <span class="arithmatex">\(\mathbf R_3\)</span> and using them as parameters in
 the original Helmert transformation formula.</p>
 <p>Shown here is only the 7-parameter version of the Helmert transformation
 but of course this obviously also extends to the 14-parameter version and
@@ -948,9 +977,9 @@ combinations of the two.</p>
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../javascript/katex.js"></script>
+        <script src="../../javascript/mathjax.js"></script>
       
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
