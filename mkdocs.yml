@@ -13,6 +13,7 @@ nav:
 - Geodesy:
   - geodesy/index.md
   - Helmert transformation: geodesy/helmert.md
+  - Euler poles: geodesy/eulerpole.md
 - About:
   - cv.md
 
@@ -61,9 +62,17 @@ theme:
     logo: logo
 
 markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
   - pymdownx.blocks.caption
+
   - pymdownx.arithmatex:
       generic: true
+
 
 extra:
   social:
